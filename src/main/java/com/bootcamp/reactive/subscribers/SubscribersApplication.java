@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MicroservicioParaSuscriptoresDeBlogsApplication {
+public class SubscribersApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroservicioParaSuscriptoresDeBlogsApplication.class, args);
+		SpringApplication.run(SubscribersApplication.class, args);
 	}
 
 }
