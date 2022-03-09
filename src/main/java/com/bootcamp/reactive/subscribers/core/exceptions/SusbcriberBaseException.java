@@ -19,4 +19,5 @@ public class SusbcriberBaseException extends RuntimeException {
         this.message = message;
     }
 
+
 }

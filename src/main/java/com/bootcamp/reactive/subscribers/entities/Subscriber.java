@@ -25,4 +25,6 @@ public class Subscriber {
     private String authorName;
     @Column("Date")
     private LocalDate date;
+    @Column("UserId")
+    private String userId;
 }

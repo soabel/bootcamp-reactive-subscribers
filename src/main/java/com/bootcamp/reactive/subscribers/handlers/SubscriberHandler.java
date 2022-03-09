@@ -22,22 +22,15 @@ public class SubscriberHandler {
                 .switchIfEmpty(Mono.error(new SusbcriberBaseException("No se encontró elementos")))
                 .collectList()
                 .flatMap(list-> ServerResponse.ok().body(Mono.just(list), Subscriber.class));
-
-//        return this.blogService.findById(request.pathVariable("id"))
-//                .flatMap(blog -> ServerResponse.ok().body(Mono.just(blog), Blog.class))
-//                .switchIfEmpty(ServerResponse.notFound().build());
-
-
-//        return ServerResponse.ok()
-//                .contentType(APPLICATION_JSON)
-//                .body(subscriberService.findAll(), Subscriber.class);
     }
 
     public Mono<ServerResponse> findById(ServerRequest serverRequest) {
         return null;
     }
 
-    public Mono<ServerResponse> save(ServerRequest serverRequest) {
-        return null;
+    public Mono<ServerResponse> save(ServerRequest request) {
+        return request.bodyToMono(Subscriber.class)
+                .flatMap(subscriber -> this.subscriberService.save(subscriber))
+                .flatMap(subscriber -> ServerResponse.ok().body(Mono.just(subscriber), Subscriber.class));
     }
 }
