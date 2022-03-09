@@ -15,6 +15,9 @@ public class SubscriberServiceImpl implements SubscriberService {
 
     @Override
     public Flux<Subscriber> findAll() {
+
+
+
         return this.subscriberRepository.findAll();
     }
 }
