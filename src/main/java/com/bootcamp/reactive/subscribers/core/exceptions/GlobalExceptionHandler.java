@@ -2,6 +2,7 @@ package com.bootcamp.reactive.subscribers.core.exceptions;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.buffer.DataBuffer;
@@ -11,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+@Slf4j
 @Configuration
 public class GlobalExceptionHandler implements ErrorWebExceptionHandler {
 
@@ -39,6 +41,7 @@ public class GlobalExceptionHandler implements ErrorWebExceptionHandler {
 
         }
 
+        log.info("ERROR ex=" + ex);
         exchange.getResponse().setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
         exchange.getResponse().getHeaders().setContentType(MediaType.TEXT_PLAIN);
         DataBuffer dataBuffer = bufferFactory.wrap("Unknown error".getBytes());
