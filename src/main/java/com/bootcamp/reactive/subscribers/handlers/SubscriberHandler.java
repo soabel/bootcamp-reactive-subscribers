@@ -25,7 +25,9 @@ public class SubscriberHandler {
     }
 
     public Mono<ServerResponse> findById(ServerRequest serverRequest) {
-        return null;
+        Integer id = Integer.parseInt(serverRequest.pathVariable("id"));
+        return this.subscriberService.findById(id)
+                .flatMap(s-> ServerResponse.ok().body(Mono.just(s), Subscriber.class)) ;
     }
 
     public Mono<ServerResponse> save(ServerRequest request) {

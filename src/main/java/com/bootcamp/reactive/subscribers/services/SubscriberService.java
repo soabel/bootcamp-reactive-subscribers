@@ -6,5 +6,6 @@ import reactor.core.publisher.Mono;
 
 public interface SubscriberService {
     Flux<Subscriber> findAll();
+    Mono<Subscriber> findById(Integer id);
     Mono<Subscriber> save(Subscriber subscriber);
 }

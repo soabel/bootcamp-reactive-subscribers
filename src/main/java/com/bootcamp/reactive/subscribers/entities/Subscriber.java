@@ -27,4 +27,5 @@ public class Subscriber {
     private LocalDate date;
     @Column("UserId")
     private String userId;
+
 }
