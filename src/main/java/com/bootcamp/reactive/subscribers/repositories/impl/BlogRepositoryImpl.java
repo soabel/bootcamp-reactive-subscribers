@@ -45,6 +45,7 @@ public class BlogRepositoryImpl implements BlogRepository {
 
 
         return this.client.get().uri("/{id}", id).accept(MediaType.APPLICATION_JSON)
+//                .header("Authorization","Bearer {token}")
                 .retrieve()
                 .onStatus(HttpStatus::is5xxServerError, response-> Mono.error(new SusbcriberBaseException("Server error")))
                 .bodyToMono(Blog.class)

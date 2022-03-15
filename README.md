@@ -1,3 +1,13 @@
+
+# SECURITY
+## Iniciar un servicio de Identity Management con Keycloak
+
+`docker run -d --name start-keycloak -p 9999:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:17.0.0 start-dev`
+
+## Tutorial para configurar una app en keycloak
+https://medium.com/devops-dudes/securing-spring-boot-rest-apis-with-keycloak-1d760b2004e
+
+
 # bootcamp-reactive-subscribers
 ## Database connection
 
